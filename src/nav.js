@@ -13,37 +13,56 @@ import Resume from './resume'
 import Pdf from './WilsonWangResume.pdf';
 
 
-export default function NavTabs() {
-  const [value, setValue] = React.useState(0);
+export default class NavTabs extends React.Component {
+  constructor(props) {
+    super(props)
+    const dict = {
+      '': 0,
+      'food': 2, 
+    }
+    let url = window.location.href
+    let path = url.slice(url.indexOf('/', 7) + 1, url.length);
+    console.log(path);
 
-  const handleChange = (event, newValue) => {
-    if(newValue != 1)
-      setValue(newValue);
-  };
+    this.state = {
+      value: dict[path]
+    }
 
-  return (
-    <Box sx={{ width: '100%', position: 'sticky', }}>
-      <Router>
-        <Tabs sx={{ height: '100%' }} value={value} onChange={handleChange} centered>
-          <Tab label="Home" to="/" component={Link} />
-          <Tab label="Resume" onClick={function(){openResume(); }}/>
-          <Tab label="Food" to="/food" component={Link} />
-        </Tabs>
+    this.state.handleChange = (event, newValue) => {
+      if (newValue !== 1)
+        this.setState({value: newValue});
+        console.log(this.state.value + ' ' + newValue)
+    };
 
-        <Switch>
-          <Route path="/resume">
-            <Resume />
-          </Route>
-          <Route path="/food">
-            <Food />
-          </Route>
-          <Route path="/">
-            <Intro />
-          </Route>
-        </Switch>
-      </Router>
-    </Box>
-  );
+  }
+
+  render() {
+    return (
+      <>
+      <Box sx={{ width: '100%', position: 'sticky', }}>
+        <Router>
+          <Tabs sx={{ height: '100%' }} value={this.state.value} onChange={this.state.handleChange} centered>
+            <Tab label="Home" to="/" component={Link} />
+            <Tab label="Resume" onClick={function () { openResume(); }} />
+            <Tab label="Food" to="/food" component={Link} />
+          </Tabs>
+
+          <Switch>
+            <Route path="/resume">
+              <Resume />
+            </Route>
+            <Route path="/food">
+              <Food />
+            </Route>
+            <Route path="/">
+              <Intro />
+            </Route>
+          </Switch>
+        </Router>
+      </Box>
+      </>
+    );
+  }
 }
 
 // these need to have their own files
