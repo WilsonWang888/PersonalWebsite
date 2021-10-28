@@ -28,14 +28,9 @@ export default class Food extends React.Component {
   render() {
     return (
       <>
-        <div sx={{ textAlign: "right" }}>
+        <Fab color="primary" aria-label="follow" variant="extended" sx={{ textAlign: "right", marginLeft: "85%" }}>
           <p sx={{ textAlign: "right" }}>
-            follow me:
-          </p>
-        </div>
-        <Fab color="secondary" aria-label="follow" variant="extended" sx={{textAlign: "right", marginLeft:"85%" }}>
-          <p sx={{ textAlign: "right" }}>
-          Follow me
+            Follow me
           </p>
         </Fab>
         <ImageList sx={{ width: 1100, height: 1050, marginLeft: "auto", marginRight: "auto" }} cols={2} >
