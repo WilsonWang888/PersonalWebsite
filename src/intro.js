@@ -6,7 +6,11 @@ export default function Intro()  {
       <>
         <div sx={{display: 'inline'}}>
           <h1>
-            Hi! I'm Wilson 
+            Hi! I'm Wilson Wang!
+
+            
+
+
           </h1>
         </div>
       </>

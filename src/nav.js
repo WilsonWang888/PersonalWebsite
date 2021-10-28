@@ -10,6 +10,7 @@ import {
 } from "react-router-dom"
 import Intro from './intro';
 import Resume from './resume'
+import Food from './food'
 import Pdf from './WilsonWangResume.pdf';
 
 
@@ -71,12 +72,3 @@ function openResume() {
   window.open(Pdf);
 }
 
-
-function Food() {
-
-  return (
-    <>
-      <h2>Food</h2>
-    </>
-  );
-}
