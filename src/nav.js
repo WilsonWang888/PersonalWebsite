@@ -11,11 +11,10 @@ import {
   Link
 } from "react-router-dom"
 import Intro from './intro';
-import Resume from './resume'
 import Food from './food'
+import Recipes from './recipes'
 import Pdf from './WilsonWangResume.pdf';
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
-import { orange } from '@mui/material/colors';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
   palette: {
@@ -38,6 +37,7 @@ export default class NavTabs extends React.Component {
     const dict = {
       '': 0,
       'food': 2,
+      'projects': 3,
     }
     let url = window.location.href
     let path = url.slice(url.indexOf('/', 7) + 1, url.length);
@@ -67,15 +67,16 @@ export default class NavTabs extends React.Component {
                 <OpenInNewIcon></OpenInNewIcon>
               </Tab>
               <Tab label="Food" to="/food" component={Link} />
-              <Tab label="Projects" disabled />
             </Tabs>
 
             <Switch>
               <Route path="/resume">
-                <Resume />
               </Route>
               <Route path="/food">
                 <Food />
+              </Route>
+              <Route path="/recipes">
+                <Recipes />
               </Route>
               <Route path="/">
                 <Intro />

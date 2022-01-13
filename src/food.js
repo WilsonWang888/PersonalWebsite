@@ -24,11 +24,16 @@ const itemData = [
   }
 ]
 
+function openInsta() {
+  window.open("https://www.instagram.com/dongwangwilly/");
+}
+
+
 export default class Food extends React.Component {
   render() {
     return (
       <>
-        <Fab color="primary" aria-label="follow" variant="extended" sx={{ textAlign: "right", marginLeft: "85%" }}>
+        <Fab color="primary" aria-label="follow" variant="extended" sx={{ textAlign: "right", marginLeft: "85%" }} onClick={function () { openInsta(); }}>
           <p sx={{ textAlign: "right" }}>
             Follow me
           </p>
